@@ -1,0 +1,159 @@
+$pageWidth: 2500;
+$pageHeight: 2500;
+
+
+
+.bg-holder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+.bg-img{
+    filter:brightness(0.2);
+}
+
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@function multiple-box-shadow ($n) {
+   $value: '#{random($pageWidth)}px #{random($pageHeight)}px #E1F5FE';
+
+  @for $i from 2 through $n{    
+    $value: '#{$value} ,  #{random($pageWidth)}px #{random($pageHeight)}px #E1F5FE';
+  }
+  @return unquote($value)
+};
+   
+$shadows-small:  multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big:    multiple-box-shadow(100);
+
+
+$speed: 100;
+
+.stars {
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow:$shadows-small;
+    animation: animStar #{$speed + 100}s  linear infinite;
+
+}
+.stars:after {
+    content: " ";
+    position: absolute;
+    top: 2500px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow:$shadows-small;    
+}
+
+.stars2 {
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow:$shadows-medium;
+    animation: animStar #{$speed+50}s linear infinite;
+}
+.stars2:after {
+    content: " ";
+    position: absolute;
+    top: 2500px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow:$shadows-medium;   
+}
+.stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow:$shadows-big;
+    animation: animStar #{$speed}s linear infinite;
+}
+.stars3:after {
+    content: " ";
+    position: absolute;
+    top: 2500px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow:$shadows-big;    
+}
+
+
+.stars4 {
+    width: 4px;
+    height: 4px;     
+    // animation: animStar #{$speed}s linear infinite;
+
+    &:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 2500px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;    
+        background: #E1F5FE;
+        box-shadow: 0 0 5px 2px #c376be;   
+        } 
+    
+    & span{    
+        display: block;        
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;   
+        background: #E1F5FE;
+        box-shadow: 0 0 5px 2px #c376be;
+    }
+}
+
+
+@for $i from 1 through 20 {	    
+    $delay: random(5);     
+    .stars4:nth-child(#{$i}) {    
+        transform: translate(#{random(2000) + 'px'}, #{random(2500) + 'px'});        
+       
+        &::after{
+            transform: translate(#{random(2000) + 'px'}, #{random(2500) + 'px'});
+            animation: 2s ease #{$delay}s infinite flash;
+        }
+        & span {   
+            animation: 2s ease #{$delay}s infinite flash;
+          
+        }
+    }	
+}	
+
+
+@keyframes flash {
+  0% {    
+    opacity: 0.5;
+   
+  }
+  50%{
+    opacity: 1;   
+  }
+  100% {    
+    opacity: 0.5;   
+  }
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }   
+    to{
+        transform: translateY(-2500px);       
+    }
+
+}
