@@ -8,25 +8,25 @@ export const list=[
          'RTK Query', 
          'Axios' 
         ],  
-        img: '/happy-stuff.jpg'
+        img: './happy-stuff.jpg'
     },
     {
         title: 'Шокомастер. Мастер-классы по изготовлению конфет.',
         src:'https://lihol1.github.io/chocomaster/',
         stack: ['HTML', 'SCSS', 'JS', 'Gulp'],
-        img: '/chocolate-master.jpg'
+        img: './chocolate-master.jpg'
     },
     {
         title: 'Экспресс-букет. Интернет-магазин цветов',
         src:'https://lihol1.github.io/flowershop/',
         stack: ['HTML', 'SCSS', 'JS','Gulp'],
-        img: '/flower-shop.jpeg'
+        img: './flower-shop.jpeg'
     },
     {
         title: 'Boosted boards. Интернет-магазин электросамокатов',
         src:'https://lihol1.github.io/boostedboards/',
         stack: ['HTML', 'SCSS', 'JS'],
-        img: '/boosted-boards.jpg'
+        img: './boosted-boards.jpg'
     }
   ]
   
