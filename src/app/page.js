@@ -1,6 +1,7 @@
 import styles from "../styles/page.module.scss";
 import List from '../components/List';
 import Title from '../components/Title';
+import Footer from '../components/Footer';
 import BgAnimation from "@/components/BgAnimation";
 
 
@@ -10,16 +11,14 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.inner}>          
           <BgAnimation />
-          <div className={styles.container}>     
-          
+          <div className={styles.container}> 
             <Title />
             <List />
-          </div>
+            <img className={styles.arrow} src="./arrow-down.svg" alt="arrow"></img>
+          </div>          
         </div>
-      </main>
-      <footer className={styles.footer}>
-        {/* <Image src={'/happy-stuff.jpg'} width={500} height={300}></Image> */}
-      </footer>
+      </main>          
+      <Footer />
     </div>
   );
 }
